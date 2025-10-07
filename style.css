@@ -1,0 +1,557 @@
+/* VARIÁVEIS DE COR E FONTE */
+:root {
+    --roxo-principal: #9900ff; /* Roxo para títulos e CTAs */
+    --preto-fundo: #000000;
+    --branco-texto: #ffffff;
+    --bebas: 'Bebas Neue', sans-serif;
+    --montserrat: 'Montserrat', sans-serif;
+}
+
+/* ESTILOS GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--montserrat);
+    background-color: var(--preto-fundo);
+    color: var(--branco-texto);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- TEXTO COM COR PERSONALIZADA (para 'SEU CARRO') --- */
+.text-roxo {
+    color: var(--roxo-principal);
+}
+
+
+/* --- BOTÕES (CTAs) --- */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-family: var(--montserrat);
+    font-weight: 600;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Botão principal (Agenda Agora Mesmo) */
+.btn-primario {
+    background-color: var(--roxo-principal);
+    color: var(--branco-texto);
+    border: none;
+}
+.btn-primario:hover {
+    background-color: #7a00cc; /* Um roxo um pouco mais escuro */
+}
+
+/* Botão secundário (Nossos Serviços) */
+.btn-secundario {
+    background-color: transparent;
+    color: var(--roxo-principal);
+    border: 2px solid var(--roxo-principal);
+    margin-right: 15px; /* Para separar do botão primário */
+}
+.btn-secundario:hover {
+    background-color: var(--roxo-principal);
+    color: var(--branco-texto);
+}
+
+
+/* --- CABEÇALHO / NAVBAR --- */
+.header {
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo sutilmente transparente */
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- LOGO (IMAGEM) --- */
+.logo-img {
+    height: 70px; /* Altura corrigida */
+    width: auto;
+    background-color: transparent; 
+}
+
+
+/* --- SEÇÃO HERO --- */
+.hero-section {
+    /* AQUI: Usando a imagem de fundo 'pagina 1.jpg' */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('/image/Teste\ fundo.png') no-repeat center center/cover;
+    height: 100vh; /* Ocupa a altura total da tela */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 80px; /* Compensa o cabeçalho fixo */
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-family: var(--bebas);
+    font-size: 5rem;
+    color: var(--branco-texto);
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 40px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Ajuste do botão dentro da seção Hero, se necessário */
+.hero-content .btn-primario {
+    font-size: 1.1rem;
+    padding: 15px 40px;
+}
+
+/* --- SEÇÃO NOSSOS SERVIÇOS (COM POLÍGONOS) --- */
+.servicos-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.servicos-grid {
+    display: grid;
+    /* 3 colunas por linha (Desktop) */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 50px 30px; /* Espaço entre as linhas e colunas */
+    margin-top: 50px;
+}
+
+.servico-item {
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+.servico-item:hover {
+    transform: translateY(-5px);
+}
+
+.servico-item h3 {
+    font-family: var(--bebas);
+    font-size: 1.7rem;
+    color: var(--roxo-principal);
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.servico-item p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* --- ESTILO DO POLÍGONO (HEXÁGONO INCLINADO) --- */
+.poligono-container {
+    width: 100%;
+    /* Define a altura do container do polígono */
+    height: 220px; 
+    overflow: hidden; /* MUITO IMPORTANTE: Esconde a parte da imagem que está fora do shape */
+    margin: 0 auto;
+    background-color: #1a1a1a; /* Cor de fundo para quando a imagem não carregar */
+    
+    /* Cria a forma de Polígono (Hexágono Irregular) */
+    clip-path: polygon(
+        10% 0%, 
+        90% 0%, 
+        100% 50%, 
+        90% 100%, 
+        10% 100%, 
+        0% 50%
+    );
+    border: 3px solid var(--roxo-principal);
+    transition: border-color 0.3s;
+}
+
+.poligono-container:hover {
+    border-color: var(--branco-texto);
+}
+
+.servico-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem preencha o shape sem distorcer */
+    display: block;
+    transition: transform 0.3s;
+}
+
+/* Efeito de zoom na imagem ao passar o mouse */
+.servico-item:hover .servico-img {
+    transform: scale(1.05);
+}
+
+/* --- SEÇÃO PACOTES --- */
+.pacotes-section {
+    padding: 80px 0;
+    background-color: #0d0d0d; /* Fundo levemente diferente para destacar a seção */
+    text-align: center;
+}
+
+.pacote-item {
+    margin-bottom: 60px;
+    border: 2px solid var(--roxo-principal);
+    border-radius: 8px;
+    background-color: var(--preto-fundo);
+    overflow: hidden;
+    text-align: left;
+}
+
+.pacote-header {
+    background-color: var(--roxo-principal);
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+}
+
+.pacote-header h3 {
+    font-family: var(--bebas);
+    font-size: 2rem;
+    color: var(--branco-texto);
+    margin: 0;
+}
+
+.icone-pacote {
+    font-family: var(--bebas);
+    font-size: 1.2rem;
+    font-weight: 700;
+    background-color: var(--branco-texto);
+    color: var(--roxo-principal);
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin-right: 15px;
+}
+
+.pacote-conteudo {
+    display: flex;
+    padding: 20px;
+}
+
+/* Container dos 2 polígonos */
+.pacote-poligonos {
+    display: flex;
+    width: 45%; /* Ocupa metade do espaço */
+    gap: 10px;
+    padding-right: 20px;
+}
+
+/* Polígono de Metade */
+.poligono-metade {
+    /* Herda o clip-path do .poligono-container, mas ajusta a largura */
+    width: 50%;
+    height: 180px;
+    border: 2px solid var(--roxo-principal);
+}
+
+.pacote-lista {
+    width: 55%; /* Ocupa a outra metade do espaço */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pacote-lista li {
+    font-family: var(--montserrat);
+    font-size: 1rem;
+    padding: 8px 0;
+    border-bottom: 1px solid #333;
+    color: var(--branco-texto);
+}
+.pacote-lista li:last-child {
+    border-bottom: none;
+}
+
+/* --- SEÇÃO CTA FINAL --- */
+.cta-final-section {
+    padding: 80px 0;
+    text-align: center;
+    background-color: var(--roxo-principal); /* Destaque em Roxo */
+    color: var(--branco-texto);
+}
+
+.cta-final-section h2 {
+    font-family: var(--bebas);
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.cta-final-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.cta-final-section .cta-btn {
+    background-color: var(--preto-fundo); /* Botão Preto sobre o fundo Roxo */
+    border: 2px solid var(--branco-texto);
+}
+
+.cta-final-section .cta-btn:hover {
+    background-color: #1a1a1a;
+    border-color: var(--branco-texto);
+}
+
+/* --- RODAPÉ (FOOTER) --- */
+.footer-section {
+    background-color: #111111;
+    padding: 60px 0 0; /* Remove o padding de baixo, pois o copyright terá o seu */
+}
+
+/* Container para Localização e Fale Conosco (Top Row) */
+.footer-top-row {
+    display: flex;
+    justify-content: space-around; /* Distribui o espaço entre os dois blocos */
+    gap: 30px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #333; /* Linha divisória sutil */
+}
+
+.footer-item {
+    /* Garante que ocupem 50% cada, alinhados no centro */
+    flex-basis: 50%; 
+    text-align: center;
+}
+
+.footer-item h4 {
+    font-family: var(--bebas);
+    font-size: 1.5rem;
+    color: var(--roxo-principal);
+    margin-bottom: 15px;
+}
+
+.footer-item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Estilo para links de contato (WhatsApp e Insta) */
+.social-link {
+    /* Centraliza os links no container de contato */
+    display: inline-flex;
+    align-items: center;
+    color: var(--branco-texto);
+    text-decoration: none;
+    font-size: 1rem;
+    margin: 5px 15px;
+    transition: color 0.3s;
+}
+
+/* Ícones mantidos (se você os tiver adicionado) */
+.social-link .icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    filter: invert(1);
+}
+
+.social-link:hover {
+    color: var(--roxo-principal);
+}
+
+
+/* --- DIREITOS RESERVADOS (BOTTOM) --- */
+.footer-copyright {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer-copyright p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+}
+
+/* --- BOTÃO VOLTAR AO TOPO --- */
+#scrollToTopBtn {
+    display: none; /* Começa escondido, o JS vai mostrar */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999; /* Garante que fique acima de todos os outros elementos */
+    width: 50px;
+    height: 50px;
+    background-color: var(--roxo-principal);
+    color: var(--branco-texto);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 50px; /* Centraliza o texto/ícone verticalmente */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #7a00cc; /* Roxo um pouco mais escuro */
+}
+
+/* --- MEDIA QUERIES (OTIMIZAÇÃO MOBILE) --- */
+
+@media (max-width: 768px) {
+    /* Ajustes Gerais para Telas Menores que 768px (Tablets e Celulares) */
+    
+    .container {
+        padding: 0 15px; /* Reduz o padding lateral para maximizar o espaço */
+    }
+
+    /* --- CABEÇALHO / NAVBAR --- */
+    .navbar {
+        flex-direction: column; /* Empilha o logo e os botões */
+        gap: 10px; /* Espaço entre o logo e os botões */
+        text-align: center;
+    }
+
+    .logo-img {
+        height: 70px; /* Ajuste para mobile */
+    }
+    
+    /* Centraliza a navegação e ajusta o espaçamento dos botões */
+    nav {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .btn {
+        padding: 10px 20px; /* Botões menores */
+        font-size: 0.9rem;
+    }
+    
+    .btn-secundario {
+        margin-right: 5px; /* Reduz o espaço entre os botões */
+    }
+    
+    /* --- SEÇÃO HERO --- */
+    .hero-section {
+        height: 80vh; /* Ocupa um pouco menos da tela em mobile para o usuário ver o conteúdo abaixo */
+    }
+
+    .hero-content h1 {
+        font-size: 3rem; /* Título principal menor */
+    }
+
+    .hero-content p {
+        font-size: 1rem; /* Parágrafo menor e mais fácil de ler */
+        padding: 0 10px;
+    }
+
+    .hero-content .btn-primario {
+        font-size: 1rem;
+        padding: 12px 30px;
+    }
+
+    .servicos-grid {
+        /* 1 coluna por linha (Mobile) */
+        grid-template-columns: 1fr; 
+        gap: 60px; 
+    }
+    
+    .poligono-container {
+        /* Ajusta o tamanho do polígono para telas menores */
+        height: 200px;
+        max-width: 80%;
+    }
+
+    .pacote-header h3 {
+        font-size: 1.5rem;
+    }
+    
+    .pacote-conteudo {
+        flex-direction: column; /* Empilha o bloco de imagens e a lista */
+        padding: 15px;
+    }
+
+    .pacote-poligonos {
+        width: 100%; /* Ocupa a largura total */
+        margin-bottom: 20px;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .poligono-metade {
+        width: 45%; /* Os dois polígonos ficam lado a lado, mas menores */
+        height: 150px;
+    }
+    
+    .pacote-lista {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .pacote-lista li {
+        font-size: 0.95rem;
+    }
+
+    .cta-final-section h2 {
+        font-size: 2.5rem;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr; /* Empilha tudo em uma coluna */
+        text-align: center;
+    }
+
+    .footer-item {
+        margin-bottom: 30px;
+    }
+    
+    .footer-logo, .footer-item {
+        /* Centraliza o conteúdo no mobile */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-link {
+        justify-content: center;
+    }
+
+    .footer-top-row {
+        flex-direction: column; 
+        gap: 40px;
+    }
+    
+    .footer-item {
+        /* Garante que ocupe a largura total no mobile e o texto continue centralizado */
+        flex-basis: 100%;
+        text-align: center;
+    }
+
+    /* Garante que os links de contato continuem centralizados */
+    .social-link {
+        justify-content: center;
+    }
+
+    #scrollToTopBtn {
+        width: 40px;
+        height: 40px;
+        bottom: 15px;
+        right: 15px;
+        font-size: 20px;
+        line-height: 40px;
+    }
+}
