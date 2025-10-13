@@ -217,84 +217,41 @@ body {
     background: var(--roxo-principal) !important;
 }
 
-/* --- SEÇÃO PACOTES --- */
+/* --- NOVA SEÇÃO: PACOTES EXCLUSIVOS --- */
 .pacotes-section {
     padding: 80px 0;
-    background-color: #0d0d0d; /* Fundo levemente diferente para destacar a seção */
     text-align: center;
+    /* Usa a mesma cor de fundo da página */
 }
 
-.pacote-item {
-    margin-bottom: 60px;
-    border: 2px solid var(--roxo-principal);
-    border-radius: 8px;
-    background-color: var(--preto-fundo);
-    overflow: hidden;
-    text-align: left;
-}
-
-.pacote-header {
-    background-color: var(--roxo-principal);
-    padding: 15px 30px;
-    display: flex;
-    align-items: center;
-}
-
-.pacote-header h3 {
-    font-family: var(--bebas);
-    font-size: 2rem;
-    color: var(--branco-texto);
-    margin: 0;
-}
-
-.icone-pacote {
-    font-family: var(--bebas);
-    font-size: 1.2rem;
-    font-weight: 700;
-    background-color: var(--branco-texto);
-    color: var(--roxo-principal);
-    padding: 5px 10px;
-    border-radius: 3px;
-    margin-right: 15px;
-}
-
-.pacote-conteudo {
-    display: flex;
-    padding: 20px;
-}
-
-/* Container dos 2 polígonos */
-.pacote-poligonos {
-    display: flex;
-    width: 45%; /* Ocupa metade do espaço */
-    gap: 10px;
-    padding-right: 20px;
-}
-
-/* Polígono de Metade */
-.poligono-metade {
-    /* Herda o clip-path do .poligono-container, mas ajusta a largura */
-    width: 50%;
-    height: 180px;
-    border: 2px solid var(--roxo-principal);
-}
-
+/* Estilo para a lista de itens inclusos */
 .pacote-lista {
-    width: 55%; /* Ocupa a outra metade do espaço */
-    list-style: none;
+    list-style: none; /* Remove os marcadores de lista padrão */
     padding: 0;
-    margin: 0;
+    margin: 10px 0 20px 0;
+    text-align: left;
+    width: 100%;
+    /* Max-width para centralizar a lista dentro do card */
+    max-width: 200px; 
+    margin: 10px auto 20px auto;
 }
 
 .pacote-lista li {
-    font-family: var(--montserrat);
-    font-size: 1rem;
-    padding: 8px 0;
-    border-bottom: 1px solid #333;
+    font-size: 0.9rem;
     color: var(--branco-texto);
+    margin-bottom: 5px;
+    padding-left: 15px;
+    position: relative;
 }
-.pacote-lista li:last-child {
-    border-bottom: none;
+
+/* Garante que os botões de navegação e paginação sejam únicos para este Swiper */
+.swiper-button-next.pacotes-next, 
+.swiper-button-prev.pacotes-prev {
+    color: var(--roxo-principal) !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--roxo-principal) !important;
 }
 
 /* --- SEÇÃO CTA FINAL --- */

@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     links.forEach(link => {
         link.addEventListener('click', function(e) {
-            // Verifica se o link não é um link de contato direto (como o WhatsApp)
+            // Permite que links de WhatsApp passem direto
             if (!this.getAttribute('href').startsWith('#')) {
                 return; 
             }
@@ -16,9 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetElement = document.getElementById(targetId);
 
             if (targetElement) {
-                // Rola suavemente para o elemento
+                // Rola suavemente para o elemento, compensando o header fixo
                 window.scrollTo({
-                    // -100 para compensar o header fixo, garantindo que o topo da seção apareça
                     top: targetElement.offsetTop - 100, 
                     behavior: 'smooth'
                 });
@@ -27,37 +26,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     // --- LÓGICA DO HEADER INTELIGENTE (SMART HEADER) ---
-    let lastScrollTop = 0; // Armazena a última posição de rolagem
-    const header = document.querySelector('.header'); // Seleciona o seu elemento header
+    let lastScrollTop = 0;
+    const header = document.querySelector('.header');
 
     window.addEventListener('scroll', () => {
         let currentScroll = window.scrollY || document.documentElement.scrollTop;
 
-        // Se a rolagem atual for 80px maior que zero (para ignorar o topo)
         if (currentScroll > 80) {
             // Rolar para baixo
             if (currentScroll > lastScrollTop) {
-                // Adiciona a classe 'hidden' para deslizar para cima (esconder)
                 header.classList.add('hidden');
             } 
             // Rolar para cima
             else if (currentScroll < lastScrollTop) {
-                // Remove a classe 'hidden' para deslizar para baixo (mostrar)
                 header.classList.remove('hidden');
             }
         } else {
-            // Se estiver no topo da página, garante que está visível
             header.classList.remove('hidden');
         }
 
-        // Atualiza a última posição de rolagem
         lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
     }, false); 
     
     // --- LÓGICA DO BOTÃO VOLTAR AO TOPO ---
     const scrollBtn = document.getElementById('scrollToTopBtn');
 
-    // 1. Mostrar/Esconder o botão ao rolar a página
     window.addEventListener('scroll', () => {
         if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
             scrollBtn.style.display = "block";
@@ -66,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 2. Função de rolagem suave ao clicar
     scrollBtn.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
@@ -74,52 +66,91 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- INICIALIZAÇÃO DO CARROSSEL SWIPER ---
-    // A biblioteca Swiper já deve ter sido carregada no seu HTML
+    // --- 1. INICIALIZAÇÃO DO CARROSSEL DE SERVIÇOS ---
     new Swiper(".mySwiper", {
-        // --- PROPRIEDADES PARA ROLAGEM RÁPIDA E CONTÍNUA ---
-        loop: true, // Garante a rolagem infinita
+        // PROPRIEDADES DE MOVIMENTO "VIVO"
+        loop: true, 
         autoplay: {
-            delay: 1500, // Rolagem mais rápida a cada 1.5 segundos
-            disableOnInteraction: false, // Continua o autoplay mesmo se o usuário interagir
+            delay: 1500, 
+            disableOnInteraction: false, 
         },
-        speed: 1000, // 1 segundo de transição para o movimento ser suave
-        // ---------------------------------------------------
+        speed: 1000, 
+        // FIM PROPRIEDADES DE MOVIMENTO "VIVO"
         
-        // Configuração de Layout
         slidesPerView: 2, 
         slidesPerColumn: 2, 
         spaceBetween: 20, 
 
-        // Paginação (os pontinhos)
         pagination: {
             el: ".swiper-pagination",
             clickable: true,
         },
-        // Navegação (as setas)
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
         },
         
-        // Responsividade
+        // Responsividade para Serviços (5 colunas, 2 linhas no desktop)
         breakpoints: {
-            // Mobile (tela < 768px)
             320: {
                 slidesPerView: 1, 
                 slidesPerColumn: 1, 
                 spaceBetween: 15,
             },
-            // Tablet (tela >= 768px)
             768: {
                 slidesPerView: 2, 
                 slidesPerColumn: 2, 
                 spaceBetween: 20,
             },
-            // Desktop (tela >= 1024px)
             1024: {
                 slidesPerView: 5, 
                 slidesPerColumn: 2,
+                spaceBetween: 30,
+            },
+        },
+    });
+
+
+    // --- 2. INICIALIZAÇÃO DO CARROSSEL DE PACOTES EXCLUSIVOS (NOVO) ---
+    new Swiper(".mySwiperPacotes", {
+        // PROPRIEDADES DE MOVIMENTO "VIVO" (IGUAIS AOS SERVIÇOS)
+        loop: true, 
+        autoplay: {
+            delay: 1500, 
+            disableOnInteraction: false, 
+        },
+        speed: 1000, 
+        // FIM PROPRIEDADES DE MOVIMENTO "VIVO"
+        
+        slidesPerView: 1, 
+        slidesPerColumn: 1, 
+        spaceBetween: 30, 
+
+        // Paginação e Navegação usam as classes únicas que criamos no HTML
+        pagination: {
+            el: ".pacotes-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".pacotes-next",
+            prevEl: ".pacotes-prev",
+        },
+        
+        // Responsividade para Pacotes (3 colunas, 1 linha no desktop)
+        breakpoints: {
+            320: {
+                slidesPerView: 1, 
+                slidesPerColumn: 1, 
+                spaceBetween: 15,
+            },
+            768: {
+                slidesPerView: 2, 
+                slidesPerColumn: 1, 
+                spaceBetween: 20,
+            },
+            1024: {
+                slidesPerView: 3, // 3 pacotes visíveis por vez no desktop
+                slidesPerColumn: 1,
                 spaceBetween: 30,
             },
         },
