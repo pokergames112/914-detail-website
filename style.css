@@ -460,15 +460,10 @@ body {
     
     /* --- SEÇÃO HERO --- */
     .hero-section {
-<<<<<<< HEAD
         /* Ajuste este padding para compensar a nova altura do header.
            Como o header está mais compacto (cerca de 80px), este valor deve ser suficiente. */
         padding-top: 100px; 
         height: 80vh; 
-=======
-        padding-top: 200px;
-        height: 80vh; /* Ocupa um pouco menos da tela em mobile para o usuário ver o conteúdo abaixo */
->>>>>>> 65f0133420970cee50db57261df492ab1826a2fe
     }
 
     .hero-content h1 {
