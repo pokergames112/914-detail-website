@@ -206,17 +206,6 @@ body {
 }
 
 
-/* --- ESTILO DO SWIPER (NAVEGAÇÃO E PAGINAÇÃO) --- */
-/* Cor dos botões de navegação (setas) */
-.swiper-button-next, .swiper-button-prev {
-    color: var(--roxo-principal) !important;
-}
-
-/* Cor dos pontos de paginação */
-.swiper-pagination-bullet-active {
-    background: var(--roxo-principal) !important;
-}
-
 /* --- NOVA SEÇÃO: PACOTES EXCLUSIVOS --- */
 .pacotes-section {
     padding: 80px 0;
