@@ -274,7 +274,7 @@ body {
 /* Estilo do Carrossel de Reviews */
 .mySwiperReviews {
     max-width: 1100px; /* Limita a largura do carrossel */
-    margin: 40px auto 60px auto; /* Espaçamento: 40px em cima, 60px em baixo */
+    margin: 40px auto 30px auto; /* Espaçamento: 40px em cima, 60px em baixo */
     padding-bottom: 40px; /* Espaço para as bolinhas de paginação */
 }
 
@@ -303,7 +303,7 @@ body {
 
 /* Estilo para o botão que irá abaixo do carrossel */
 .btn-avalie {
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
 /* --- SEÇÃO CTA FINAL --- */
@@ -317,7 +317,7 @@ body {
 .cta-final-section h2 {
     font-family: var(--bebas);
     font-size: 3rem;
-    margin-bottom: 10px;
+    margin-bottom: -15px;
 }
 
 .cta-final-section p {
