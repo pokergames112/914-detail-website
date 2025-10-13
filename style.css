@@ -1,6 +1,6 @@
 /* VARIÁVEIS DE COR E FONTE */
 :root {
-    --roxo-principal: #9900ff; /* Roxo para títulos e CTAs */
+    --roxo-principal: #ba06ec; /* Roxo para títulos e CTAs */
     --preto-fundo: #000000;
     --branco-texto: #ffffff;
     --bebas: 'Bebas Neue', sans-serif;
@@ -50,7 +50,7 @@ body {
     border: none;
 }
 .btn-primario:hover {
-    background-color: #7a00cc; /* Um roxo um pouco mais escuro */
+    background-color: #ba06ec; /* Um roxo um pouco mais escuro */
 }
 
 /* Botão secundário (Nossos Serviços) */
@@ -414,7 +414,7 @@ body {
 }
 
 #scrollToTopBtn:hover {
-    background-color: #7a00cc; /* Roxo um pouco mais escuro */
+    background-color: #ba06ec; /* Roxo um pouco mais escuro */
 }
 
 /* --- MEDIA QUERIES (OTIMIZAÇÃO MOBILE) --- */
@@ -460,10 +460,15 @@ body {
     
     /* --- SEÇÃO HERO --- */
     .hero-section {
+<<<<<<< HEAD
         /* Ajuste este padding para compensar a nova altura do header.
            Como o header está mais compacto (cerca de 80px), este valor deve ser suficiente. */
         padding-top: 100px; 
         height: 80vh; 
+=======
+        padding-top: 200px;
+        height: 80vh; /* Ocupa um pouco menos da tela em mobile para o usuário ver o conteúdo abaixo */
+>>>>>>> 65f0133420970cee50db57261df492ab1826a2fe
     }
 
     .hero-content h1 {
