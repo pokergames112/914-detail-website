@@ -68,12 +68,20 @@ body {
 
 /* --- CABEÇALHO / NAVBAR --- */
 .header {
-    background-color: rgba(0, 0, 0, 0.8); /* Fundo sutilmente transparente */
-    padding: 15px 0;
-    position: fixed;
+    background-color: var(--preto-fundo);
     width: 100%;
-    z-index: 1000;
+    /* Adicione estas propriedades para fixar o header */
+    position: fixed; 
     top: 0;
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    /* Adicione esta transição para o efeito de deslize */
+    transition: top 0.3s ease-in-out; 
+    padding: 15px 0; /* Ajuste o padding, se necessário, para o header */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Linha sutil para separar */
+}
+
+.header.hidden {
+    top: -100px; /* Ajuste este valor se a altura do seu header for maior que 100px */
 }
 
 .navbar {
