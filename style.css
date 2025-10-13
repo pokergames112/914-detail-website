@@ -135,81 +135,86 @@ body {
     padding: 15px 40px;
 }
 
-/* --- SEÇÃO NOSSOS SERVIÇOS (COM POLÍGONOS) --- */
+/* --- SEÇÃO SERVIÇOS / CARROSSEL --- */
 .servicos-section {
     padding: 80px 0;
     text-align: center;
 }
 
-.servicos-grid {
-    display: grid;
-    /* 3 colunas por linha (Desktop) */
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 50px 30px; /* Espaço entre as linhas e colunas */
-    margin-top: 50px;
-}
-
-.servico-item {
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-/* Efeito ao passar o mouse */
-.servico-item:hover {
-    transform: translateY(-5px);
-}
-
-.servico-item h3 {
+.title-section {
     font-family: var(--bebas);
-    font-size: 1.7rem;
-    color: var(--roxo-principal);
-    margin-top: 20px;
-    margin-bottom: 5px;
+    font-size: 3.5rem;
+    margin-bottom: 40px;
 }
 
-.servico-item p {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-
-/* --- ESTILO DO POLÍGONO (HEXÁGONO INCLINADO) --- */
-.poligono-container {
-    width: 100%;
-    /* Define a altura do container do polígono */
-    height: 220px; 
-    overflow: hidden; /* MUITO IMPORTANTE: Esconde a parte da imagem que está fora do shape */
-    margin: 0 auto;
-    background-color: #1a1a1a; /* Cor de fundo para quando a imagem não carregar */
-    
-    /* Cria a forma de Polígono (Hexágono Irregular) */
-    clip-path: polygon(
-        10% 0%, 
-        90% 0%, 
-        100% 50%, 
-        90% 100%, 
-        10% 100%, 
-        0% 50%
-    );
-    border: 3px solid var(--roxo-principal);
-    transition: border-color 0.3s;
-}
-
-.poligono-container:hover {
-    border-color: var(--branco-texto);
+/* Estilo do Cartão de Serviço */
+.servico-card {
+    background-color: #1a1a1a; /* Fundo do card */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: auto !important; /* Swiper exige !important para funcionar com auto */
 }
 
 .servico-img {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* Garante que a imagem preencha o shape sem distorcer */
-    display: block;
-    transition: transform 0.3s;
+    height: 150px; /* Altura fixa para uniformidade */
+    object-fit: cover; /* Garante que a imagem cubra o espaço */
+    border-radius: 5px;
+    margin-bottom: 15px;
 }
 
-/* Efeito de zoom na imagem ao passar o mouse */
-.servico-item:hover .servico-img {
-    transform: scale(1.05);
+.servico-card h3 {
+    font-family: var(--bebas);
+    font-size: 1.8rem;
+    color: var(--roxo-principal);
+    margin-bottom: 5px;
+}
+
+.servico-card p {
+    font-size: 0.9rem;
+    color: #ccc;
+    flex-grow: 1; /* Faz o parágrafo ocupar o espaço para alinhar botões */
+    margin-bottom: 15px;
+    min-height: 40px; /* Garante que cards com textos curtos não fiquem desalinhados */
+}
+
+.preco-card {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--branco-texto);
+    margin-bottom: 15px;
+}
+
+.btn-card {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--roxo-principal);
+    color: var(--branco-texto);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.btn-card:hover {
+    background-color: #7a00cc;
+}
+
+
+/* --- ESTILO DO SWIPER (NAVEGAÇÃO E PAGINAÇÃO) --- */
+/* Cor dos botões de navegação (setas) */
+.swiper-button-next, .swiper-button-prev {
+    color: var(--roxo-principal) !important;
+}
+
+/* Cor dos pontos de paginação */
+.swiper-pagination-bullet-active {
+    background: var(--roxo-principal) !important;
 }
 
 /* --- SEÇÃO PACOTES --- */

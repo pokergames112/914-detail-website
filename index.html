@@ -6,6 +6,7 @@
     <title>914 Detail - Estética Automotiva na Zona Norte.</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 <body>
     <header class="header">
@@ -32,92 +33,74 @@
 
      <section class="servicos-section" id="servicos">
         <div class="container">
-            <h2 class="titulo-roxo">NOSSOS SERVIÇOS</h2> <br> <br>
-            <p class="subtitulo">Qualidade e detalhe em cada etapa, para cada tipo de veículo.</p>
+            <h2 class="title-section">NOSSOS <span class="text-roxo">SERVIÇOS</span></h2>
             
-            <div class="servicos-grid">
-                
-                <div class="servico-item">
-                    <div class="poligono-container">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide servico-card">
+                        <img src="image/Lavando o carro.png" alt="Lavagem Simples" class="servico-img">
+                        <h3>LAVAGEM SIMPLES</h3>
+                        <p>Limpeza externa, básica interna e pretinho. Ideal para a manutenção diária.</p>
+                        <span class="preco-card">R$ 90</span>
+                        <a href="https://wa.me/5511966727995" target="_blank" class="btn-card">AGENDE</a>
+                    </div>
+
+                    <div class="swiper-slide servico-card">
                         <img src="image/Lavagem premium.jpg" alt="Lavagem Premium" class="servico-img">
+                        <h3>LAVAGEM PREMIUM</h3>
+                        <p>Limpeza completa com proteção: selante de pintura e revitalização de plásticos.</p>
+                        <span class="preco-card">R$ 150</span>
+                        <a href="https://wa.me/5511966727995" target="_blank" class="btn-card">AGENDE</a>
                     </div>
-                    <h3>LAVAGEM PREMIUM</h3>
-                    <p>Limpeza completa com aplicação de selante para um brilho intenso.</p>
-                </div>
-
-                <div class="servico-item">
-                    <div class="poligono-container">
+                    
+                    <div class="swiper-slide servico-card">
                         <img src="image/Lavagem detalhada.jpg" alt="Lavagem Detalhada" class="servico-img">
+                        <h3>LAVAGEM DETALHADA</h3>
+                        <p>Cuidado minucioso, limpeza de caixas de rodas, emblemas e selante na pintura (4/5 Meses).</p>
+                        <span class="preco-card">R$ 250</span>
+                        <a href="https://wa.me/5511966727995" target="_blank" class="btn-card">AGENDE</a>
                     </div>
-                    <h3>LAVAGEM DETALHADA</h3>
-                    <p>Cuidado minucioso nas caixas de rodas, emblemas e borrachas.</p>
-                </div>
 
-                <div class="servico-item">
-                    <div class="poligono-container">
-                        <img src="image/Limpeza técnica do motor.jpg" alt="Limpeza Técnica de Motor" class="servico-img">
-                    </div>
-                    <h3>LIMPEZA TÉCNICA</h3>
-                    <p>Limpeza e proteção especializada para o motor.</p>
-                </div>
-
-                <div class="servico-item">
-                    <div class="poligono-container">
-                        <img src="image/Limpeza de motos.jpg" alt="Limpeza de Motos" class="servico-img">
-                    </div>
-                    <h3>LIMPEZA DE MOTOS</h3>
-                    <p>Detalhes especializados para a limpeza e brilho da sua moto.</p>
-                </div>
-                
-                <div class="servico-item">
-                    <div class="poligono-container">
-                        <img src="image/TRATAMENTO DE COURO.webp" alt="Tratamento de Couro" class="servico-img">
-                    </div>
-                    <h3>TRATAMENTO DE COURO</h3>
-                    <p>Revitalização, hidratação e proteção dos bancos de couro.</p>
-                </div>
-
-                <div class="servico-item">
-                    <div class="poligono-container">
+                    <div class="swiper-slide servico-card">
                         <img src="image/HIGIENIZAÇÃO.jpg" alt="Higienização de Estofados" class="servico-img">
+                        <h3>HIGIENIZAÇÃO DE TECIDO</h3>
+                        <p>Limpeza profunda do interior, remove sujeira, odores e bactérias de estofados.</p>
+                        <span class="preco-card">R$ 550</span>
+                        <a href="https://wa.me/5511966727995" target="_blank" class="btn-card">AGENDE</a>
                     </div>
-                    <h3>HIGIENIZAÇÃO</h3>
-                    <p>Limpeza profunda que remove sujeira e odores de estofados.</p>
-                </div>
 
-                <div class="servico-item">
-                    <div class="poligono-container">
+                    <div class="swiper-slide servico-card">
+                        <img src="image/TRATAMENTO DE COURO.webp" alt="Tratamento de Couro" class="servico-img">
+                        <h3>TRATAMENTO DE COURO</h3>
+                        <p>Limpeza, revitalização e hidratação. Restaura a textura e protege contra o ressecamento.</p>
+                        <span class="preco-card">R$ 200</span>
+                        <a href="https://wa.me/5511966727995" target="_blank" class="btn-card">AGENDE</a>
+                    </div>
+                    
+                    <div class="swiper-slide servico-card">
+                        <img src="image/Vitrificação.jpeg" alt="Vitrificação de 1 Ano" class="servico-img">
+                        <h3>VITRIFICAÇÃO (1 ANO)</h3>
+                        <p>Proteção cerâmica de alta durabilidade para manter o brilho e a cor da pintura.</p>
+                        <span class="preco-card">R$ 350</span>
+                        <a href="https://wa.me/5511966727995" target="_blank" class="btn-card">ORÇAR</a>
+                    </div>
+                    
+                    <div class="swiper-slide servico-card">
                         <img src="image/TRATAMENTO DO MOTOR.jpg" alt="Tratamento do Motor" class="servico-img">
+                        <h3>TRATAMENTO DO MOTOR</h3>
+                        <p>Limpeza técnica e aplicação de verniz para funcionamento eficiente e duradouro.</p>
+                        <span class="preco-card">CONSULTAR</span>
+                        <a href="https://wa.me/5511966727995" target="_blank" class="btn-card">ORÇAR</a>
                     </div>
-                    <h3>TRATAMENTO DO MOTOR</h3>
-                    <p>Proteção com verniz para o funcionamento eficiente e duradouro.</p>
-                </div>
 
-                <div class="servico-item">
-                    <div class="poligono-container">
-                        <img src="image/POLIMENTO COMERCIAL.jpg" alt="Polimento Comercial" class="servico-img">
                     </div>
-                    <h3>POLIMENTO COMERCIAL</h3>
-                    <p>Restauração de brilho para carros com bom estado de conservação.</p>
-                </div>
-
-                <div class="servico-item">
-                    <div class="poligono-container">
-                        <img src="image/POLIMENTO TÉCNICO.jpeg" alt="Polimento Técnico" class="servico-img">
-                    </div>
-                    <h3>POLIMENTO TÉCNICO</h3>
-                    <p>Correção de pintura e remoção de imperfeições profundas.</p>
-                </div>
-
-                <div class="servico-item">
-                    <div class="poligono-container">
-                        <img src="image/Vitrificação.jpeg" alt="Vitrificação da Pintura" class="servico-img">
-                    </div>
-                    <h3>VITRIFICAÇÃO</h3>
-                    <p>Proteção de longa duração que cria uma barreira contra intempéries e riscos leves.</p>
-                </div>
+                
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
-        </div>
+            </div>
     </section>
 
      <section class="pacotes-section" id="pacotes">
@@ -254,6 +237,7 @@
         &#9650;
     </button>
 
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
