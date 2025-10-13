@@ -243,6 +243,35 @@ body {
     background: var(--roxo-principal) !important;
 }
 
+/* --- NOVA SEÇÃO: AVALIAÇÕES DO GOOGLE --- */
+.reviews-section {
+    padding: 80px 0;
+    text-align: center;
+    /* Você pode mudar a cor de fundo se quiser destacar esta seção. Ex: background-color: #111; */
+}
+
+.reviews-iframe-container {
+    position: relative;
+    /* Máximo de 90% para não tocar nas bordas em telas grandes */
+    max-width: 900px; 
+    width: 100%;
+    margin: 40px auto; /* Centraliza e adiciona espaço */
+    border-radius: 10px;
+    /* Borda sutil para dar o efeito de "janela" */
+    border: 3px solid var(--roxo-principal); 
+    overflow: hidden; /* Garante que o iframe fique dentro da borda */
+}
+
+/* Garante que o Iframe ocupe 100% do container */
+.reviews-iframe-container iframe {
+    display: block;
+}
+
+/* Estilo para o botão que irá abaixo do iframe */
+.btn-avalie {
+    margin-top: 20px;
+}
+
 /* --- SEÇÃO CTA FINAL --- */
 .cta-final-section {
     padding: 80px 0;
@@ -471,6 +500,11 @@ body {
     
     .pacote-lista li {
         font-size: 0.95rem;
+    }
+    
+    .reviews-iframe-container {
+        max-width: 100%;
+        margin: 30px 0; /* Remove a margem lateral */
     }
 
     .cta-final-section h2 {
