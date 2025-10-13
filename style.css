@@ -428,35 +428,42 @@ body {
 
     /* --- CABEÇALHO / NAVBAR --- */
     .navbar {
-        flex-direction: column; /* Empilha o logo e os botões */
-        gap: 10px; /* Espaço entre o logo e os botões */
-        text-align: center;
+        /* Mantenha o flex e use space-between para separar o logo da navegação */
+        flex-direction: row; /* Volta a ser em linha */
+        justify-content: space-between; /* Separa o logo da navegação */
+        align-items: center; /* Alinha verticalmente */
+        gap: 0; /* Remove o gap desnecessário */
+        width: 100%; /* Garante que ocupe a largura total */
     }
 
     .logo-img {
-        height: 70px; /* Ajuste para mobile */
+        height: 50px; /* Ajuste para mobile */
     }
     
     /* Centraliza a navegação e ajusta o espaçamento dos botões */
     nav {
         display: flex;
-        justify-content: center;
-        width: 100%;
+        justify-content: flex-end; /* Mantém os botões à direita */
+        width: auto; /* Permite que ocupe apenas o espaço necessário */
+        gap: 5px; /* Adiciona um pequeno espaçamento entre os botões */
     }
     
     .btn {
-        padding: 10px 20px; /* Botões menores */
-        font-size: 0.9rem;
+        padding: 8px 10px; /* **DIMINUI OS BOTÕES** para que caibam na mesma linha */
+        font-size: 0.8rem; /* Fonte menor */
+        white-space: nowrap; /* Impede quebras de linha no texto do botão */
     }
     
     .btn-secundario {
-        margin-right: 5px; /* Reduz o espaço entre os botões */
+        margin-right: 0; /* Remove a margem antiga */
     }
     
     /* --- SEÇÃO HERO --- */
     .hero-section {
-        padding-top: 150px;
-        height: 80vh; /* Ocupa um pouco menos da tela em mobile para o usuário ver o conteúdo abaixo */
+        /* Ajuste este padding para compensar a nova altura do header.
+           Como o header está mais compacto (cerca de 80px), este valor deve ser suficiente. */
+        padding-top: 100px; 
+        height: 80vh; 
     }
 
     .hero-content h1 {
