@@ -81,15 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
         slidesPerColumn: 2, 
         spaceBetween: 20, 
 
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        
         // Responsividade para Serviços (5 colunas, 2 linhas no desktop)
         breakpoints: {
             320: {
@@ -111,9 +102,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- 2. INICIALIZAÇÃO DO CARROSSEL DE PACOTES EXCLUSIVOS (NOVO) ---
+    // --- 2. INICIALIZAÇÃO DO CARROSSEL DE PACOTES EXCLUSIVOS ---
     new Swiper(".mySwiperPacotes", {
-        // PROPRIEDADES DE MOVIMENTO "VIVO" (IGUAIS AOS SERVIÇOS)
+        // PROPRIEDADES DE MOVIMENTO "VIVO"
         loop: true, 
         autoplay: {
             delay: 1500, 
@@ -125,16 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
         slidesPerView: 1, 
         slidesPerColumn: 1, 
         spaceBetween: 30, 
-
-        // Paginação e Navegação usam as classes únicas que criamos no HTML
-        pagination: {
-            el: ".pacotes-pagination",
-            clickable: true,
-        },
-        navigation: {
-            nextEl: ".pacotes-next",
-            prevEl: ".pacotes-prev",
-        },
         
         // Responsividade para Pacotes (3 colunas, 1 linha no desktop)
         breakpoints: {
@@ -151,6 +132,48 @@ document.addEventListener('DOMContentLoaded', () => {
             1024: {
                 slidesPerView: 3, // 3 pacotes visíveis por vez no desktop
                 slidesPerColumn: 1,
+                spaceBetween: 30,
+            },
+        },
+    });
+    
+    
+    // --- 3. INICIALIZAÇÃO DO CARROSSEL DE AVALIAÇÕES (CORRIGIDO COM AUTOPLAY) ---
+    new Swiper(".mySwiperReviews", {
+        // PROPRIEDADES DE MOVIMENTO "VIVO" (ADICIONADO)
+        loop: true, 
+        autoplay: {
+            delay: 1500, // Tempo de espera entre os slides (1.5 segundos)
+            disableOnInteraction: false, // Não para ao interagir
+        },
+        // FIM PROPRIEDADES DE MOVIMENTO "VIVO"
+        
+        speed: 800, 
+        
+        slidesPerView: 1, 
+        spaceBetween: 30, 
+
+        // Paginação (Bolinhas)
+        pagination: {
+            el: ".review-pagination",
+            clickable: true,
+        },
+
+        // Responsividade
+        breakpoints: {
+            // Mobile
+            320: {
+                slidesPerView: 1, 
+                spaceBetween: 10,
+            },
+            // Tablet
+            768: {
+                slidesPerView: 2, 
+                spaceBetween: 20,
+            },
+            // Desktop
+            1024: {
+                slidesPerView: 2, 
                 spaceBetween: 30,
             },
         },

@@ -243,31 +243,65 @@ body {
     background: var(--roxo-principal) !important;
 }
 
-/* --- NOVA SEÇÃO: AVALIAÇÕES DO GOOGLE --- */
+/* --- ESTILOS DA SEÇÃO DE AVALIAÇÕES --- */
 .reviews-section {
     padding: 80px 0;
     text-align: center;
-    /* Você pode mudar a cor de fundo se quiser destacar esta seção. Ex: background-color: #111; */
 }
 
-.reviews-iframe-container {
-    position: relative;
-    /* Máximo de 90% para não tocar nas bordas em telas grandes */
-    max-width: 900px; 
-    width: 100%;
-    margin: 40px auto; /* Centraliza e adiciona espaço */
-    border-radius: 10px;
-    /* Borda sutil para dar o efeito de "janela" */
-    border: 3px solid var(--roxo-principal); 
-    overflow: hidden; /* Garante que o iframe fique dentro da borda */
+/* Estilo para o Destaque da Nota Máxima */
+.nota-maxima-destaque {
+    background-color: #1a1a1a; /* Fundo sutil para destacar */
+    padding: 30px;
+    border-radius: 8px;
+    margin: 40px auto;
+    max-width: 650px;
 }
 
-/* Garante que o Iframe ocupe 100% do container */
-.reviews-iframe-container iframe {
-    display: block;
+.nota-maxima-destaque .nota-img {
+    width: 100%; /* Garante que a imagem se ajuste ao container */
+    max-width: 1100px; /* Limita o tamanho da imagem da nota */
+    height: auto;
+    margin-bottom: 15px;
 }
 
-/* Estilo para o botão que irá abaixo do iframe */
+.nota-maxima-destaque p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--branco-texto);
+}
+
+/* Estilo do Carrossel de Reviews */
+.mySwiperReviews {
+    max-width: 1100px; /* Limita a largura do carrossel */
+    margin: 40px auto 60px auto; /* Espaçamento: 40px em cima, 60px em baixo */
+    padding-bottom: 40px; /* Espaço para as bolinhas de paginação */
+}
+
+.review-slide {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinha o conteúdo ao topo se o carrossel tiver altura fixa */
+    height: auto !important; /* Permite que o slide se ajuste à altura da imagem */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.review-print {
+    width: 100%; /* O print ocupa toda a largura do slide */
+    height: auto;
+    border-radius: 8px;
+    /* Pode adicionar uma sombra para o efeito de "card" */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); 
+}
+
+
+/* Cor dos pontos de paginação (reutilizando a cor roxa) */
+.swiper-pagination-bullet-active {
+    background: var(--roxo-principal) !important;
+}
+
+/* Estilo para o botão que irá abaixo do carrossel */
 .btn-avalie {
     margin-top: 20px;
 }
@@ -501,7 +535,7 @@ body {
     .pacote-lista li {
         font-size: 0.95rem;
     }
-    
+
     .reviews-iframe-container {
         max-width: 100%;
         margin: 30px 0; /* Remove a margem lateral */
