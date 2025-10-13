@@ -455,6 +455,7 @@ body {
     
     /* --- SEÇÃO HERO --- */
     .hero-section {
+        padding-top: 150px;
         height: 80vh; /* Ocupa um pouco menos da tela em mobile para o usuário ver o conteúdo abaixo */
     }
 
