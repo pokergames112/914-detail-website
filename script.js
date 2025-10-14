@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new Swiper(".mySwiper", {
         loop: true, 
         autoplay: {
-            delay: 3500, // Aumentei o delay para melhor leitura
+            delay: 8000, // Aumentei o delay para melhor leitura
             disableOnInteraction: false, 
         },
         speed: 1000, 
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new Swiper(".mySwiperPacotes", {
         loop: true, 
         autoplay: {
-            delay: 4500, // Aumentei o delay para melhor leitura
+            delay: 8000, // Aumentei o delay para melhor leitura
             disableOnInteraction: false, 
         },
         speed: 1000, 
