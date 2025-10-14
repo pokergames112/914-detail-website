@@ -66,16 +66,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 1. INICIALIZAÇÃO DO CARROSSEL DE SERVIÇOS ---
+    // --- 1. INICIALIZAÇÃO DO CARROSSEL DE SERVIÇOS (COM NAVEGAÇÃO/SETAS) ---
     new Swiper(".mySwiper", {
-        // PROPRIEDADES DE MOVIMENTO "VIVO"
         loop: true, 
         autoplay: {
             delay: 1500, 
             disableOnInteraction: false, 
         },
         speed: 1000, 
-        // FIM PROPRIEDADES DE MOVIMENTO "VIVO"
+        
+        // ADICIONADO: Configuração das setas de navegação
+        navigation: {
+            nextEl: ".mySwiper .swiper-button-next",
+            prevEl: ".mySwiper .swiper-button-prev",
+        },
         
         slidesPerView: 2, 
         slidesPerColumn: 2, 
@@ -102,16 +106,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- 2. INICIALIZAÇÃO DO CARROSSEL DE PACOTES EXCLUSIVOS ---
+    // --- 2. INICIALIZAÇÃO DO CARROSSEL DE PACOTES EXCLUSIVOS (COM NAVEGAÇÃO/SETAS) ---
     new Swiper(".mySwiperPacotes", {
-        // PROPRIEDADES DE MOVIMENTO "VIVO"
         loop: true, 
         autoplay: {
             delay: 1500, 
             disableOnInteraction: false, 
         },
         speed: 1000, 
-        // FIM PROPRIEDADES DE MOVIMENTO "VIVO"
+        
+        // ADICIONADO: Configuração das setas de navegação
+        navigation: {
+            nextEl: ".mySwiperPacotes .swiper-button-next",
+            prevEl: ".mySwiperPacotes .swiper-button-prev",
+        },
         
         slidesPerView: 1, 
         slidesPerColumn: 1, 
@@ -130,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 spaceBetween: 20,
             },
             1024: {
-                slidesPerView: 3, // 3 pacotes visíveis por vez no desktop
+                slidesPerView: 3, 
                 slidesPerColumn: 1,
                 spaceBetween: 30,
             },
@@ -138,22 +146,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     
-    // --- 3. INICIALIZAÇÃO DO CARROSSEL DE AVALIAÇÕES (CORRIGIDO COM AUTOPLAY) ---
+    // --- 3. INICIALIZAÇÃO DO CARROSSEL DE AVALIAÇÕES (Original) ---
     new Swiper(".mySwiperReviews", {
-        // PROPRIEDADES DE MOVIMENTO "VIVO" (ADICIONADO)
         loop: true, 
         autoplay: {
-            delay: 1500, // Tempo de espera entre os slides (1.5 segundos)
-            disableOnInteraction: false, // Não para ao interagir
+            delay: 1500, 
+            disableOnInteraction: false, 
         },
-        // FIM PROPRIEDADES DE MOVIMENTO "VIVO"
-        
         speed: 800, 
-        
         slidesPerView: 1, 
         spaceBetween: 30, 
 
-        // Paginação (Bolinhas)
         pagination: {
             el: ".review-pagination",
             clickable: true,
@@ -161,21 +164,67 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Responsividade
         breakpoints: {
-            // Mobile
             320: {
                 slidesPerView: 1, 
                 spaceBetween: 10,
             },
-            // Tablet
             768: {
                 slidesPerView: 2, 
                 spaceBetween: 20,
             },
-            // Desktop
             1024: {
                 slidesPerView: 2, 
                 spaceBetween: 30,
             },
         },
+    });
+
+
+    // --- LÓGICA DO MODAL (LEIA MAIS) ---
+    const modalContainer = document.getElementById('modal-container');
+    const modalClose = document.getElementById('modal-close');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDescription = document.getElementById('modal-description');
+    const modalWhatsappLink = document.getElementById('modal-whatsapp-link');
+    const leiaMaisButtons = document.querySelectorAll('.btn-leia-mais');
+
+    // Função para abrir o modal
+    const openModal = (titulo, descricao) => {
+        modalTitle.innerHTML = titulo;
+        modalDescription.innerHTML = descricao;
+        // O link do WhatsApp já está no HTML (o botão "AGENDAR" dentro do modal)
+        modalContainer.style.display = 'flex'; 
+    };
+
+    // Função para fechar o modal
+    const closeModal = () => {
+        modalContainer.style.display = 'none';
+    };
+
+    // 1. Adicionar evento de clique para todos os botões "Leia Mais"
+    leiaMaisButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const titulo = button.getAttribute('data-titulo');
+            const descricao = button.getAttribute('data-descricao'); 
+            openModal(titulo, descricao);
+        });
+    });
+
+    // 2. Adicionar evento de clique para o botão de fechar (X)
+    modalClose.addEventListener('click', closeModal);
+
+    // 3. Adicionar evento de clique no fundo (fora do modal) para fechar
+    modalContainer.addEventListener('click', (e) => {
+        // Verifica se o clique foi diretamente no container (e não no conteúdo)
+        if (e.target === modalContainer) {
+            closeModal();
+        }
+    });
+    
+    // 4. Fechar com a tecla ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modalContainer.style.display === 'flex') {
+            closeModal();
+        }
     });
 });

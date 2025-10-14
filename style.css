@@ -431,6 +431,134 @@ body {
     background-color: #ba06ec; /* Roxo um pouco mais escuro */
 }
 
+/* --- ESTILO DO BOTÃO LEIA MAIS --- */
+.btn-leia-mais {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: transparent; /* Fundo transparente */
+    color: var(--roxo-principal); /* Texto roxo */
+    border: 1px solid var(--roxo-principal); /* Borda roxa sutil */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    transition: all 0.3s;
+    margin-bottom: 10px; /* Espaço entre "Leia Mais" e "Preço/Agendar" */
+    cursor: pointer;
+}
+
+.btn-leia-mais:hover {
+    background-color: var(--roxo-principal);
+    color: var(--branco-texto);
+}
+
+/* --- ESTILOS DO MODAL (POP-UP) --- */
+.modal-container {
+    display: none; /* Começa escondido, o JS muda para 'flex' */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Fundo escuro transparente */
+    z-index: 2000; /* Acima de tudo */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background-color: #1a1a1a; /* Fundo do modal mais escuro que a página */
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: var(--roxo-principal);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.modal-content h3 {
+    font-family: var(--bebas);
+    font-size: 2.5rem;
+    color: var(--roxo-principal);
+    margin-bottom: 15px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+}
+
+.modal-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 10px;
+    /* Estilo para as listas de bullet points que você forneceu */
+    padding-left: 20px; 
+    position: relative;
+}
+
+.modal-content p::before {
+    content: '★'; /* Ícone de estrela como bullet point */
+    color: var(--roxo-principal);
+    position: absolute;
+    left: 0;
+    font-size: 0.8rem;
+    top: 4px;
+}
+
+.modal-btn-agendar {
+    margin-top: 20px;
+    width: 100%; /* Botão de agendar em largura total */
+    text-align: center;
+}
+
+/* --- ESTILOS PARA IFRAME RESPONSIVO (Google Reviews) --- */
+.reviews-iframe-container-wrapper {
+    margin: 40px auto;
+    max-width: 800px; /* Limita a largura máxima do iframe no desktop */
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.reviews-iframe-container-wrapper iframe {
+    display: block; /* Remove espaços extras */
+}
+
+/* --- ESTILOS DOS BOTÕES DE NAVEGAÇÃO DO SWIPER (SETAS) --- */
+
+/* Estilo para a cor das setas de navegação */
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--roxo-principal) !important; /* Força a cor roxa definida */
+    transition: transform 0.3s ease;
+    /* Ajusta o tamanho da seta (o valor 'font-size' é usado como referência) */
+    --swiper-navigation-size: 30px; 
+}
+
+/* Efeito ao passar o mouse */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    transform: scale(1.1);
+}
+
 /* --- MEDIA QUERIES (OTIMIZAÇÃO MOBILE) --- */
 
 @media (max-width: 768px) {
@@ -589,4 +717,24 @@ body {
         font-size: 20px;
         line-height: 40px;
     }
+    .modal-content {
+        max-width: 95%;
+        padding: 20px;
+    }
+
+    .modal-content h3 {
+        font-size: 1.8rem;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        /* Diminui o tamanho das setas no mobile */
+        --swiper-navigation-size: 20px; 
+        
+        /* Afasta um pouco das bordas (ajuste se necessário) */
+        top: 50%;
+        margin-top: -10px;
+        transform: translateY(-50%);
+    }
+    
 }
