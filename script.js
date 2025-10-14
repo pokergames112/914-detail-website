@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new Swiper(".mySwiper", {
         loop: true, 
         autoplay: {
-            delay: 1500, 
+            delay: 3500, // Aumentei o delay para melhor leitura
             disableOnInteraction: false, 
         },
         speed: 1000, 
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new Swiper(".mySwiperPacotes", {
         loop: true, 
         autoplay: {
-            delay: 1500, 
+            delay: 4500, // Aumentei o delay para melhor leitura
             disableOnInteraction: false, 
         },
         speed: 1000, 
@@ -147,22 +147,23 @@ document.addEventListener('DOMContentLoaded', () => {
     
     
     // --- 3. INICIALIZAÇÃO DO CARROSSEL DE AVALIAÇÕES (Original) ---
+    // Aumentei a responsividade no mobile estreito para 1 slide por vez.
     new Swiper(".mySwiperReviews", {
         loop: true, 
         autoplay: {
-            delay: 1500, 
+            delay: 5000, // Aumentei o delay para melhor leitura
             disableOnInteraction: false, 
         },
         speed: 800, 
-        slidesPerView: 1, 
+        slidesPerView: 2, // Padrão 2 no desktop
         spaceBetween: 30, 
 
         pagination: {
-            el: ".review-pagination",
+            el: ".swiper-pagination", // Padrão Swiper (garantindo que funcione com o HTML modificado)
             clickable: true,
         },
-
-        // Responsividade
+        
+        // Responsividade: 1 slide no mobile estreito, 2 nos tablets e desktop
         breakpoints: {
             320: {
                 slidesPerView: 1, 
@@ -194,11 +195,13 @@ document.addEventListener('DOMContentLoaded', () => {
         modalDescription.innerHTML = descricao;
         // O link do WhatsApp já está no HTML (o botão "AGENDAR" dentro do modal)
         modalContainer.style.display = 'flex'; 
+        document.body.style.overflow = 'hidden'; // Bloqueia a rolagem do body
     };
 
     // Função para fechar o modal
     const closeModal = () => {
         modalContainer.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restaura a rolagem do body
     };
 
     // 1. Adicionar evento de clique para todos os botões "Leia Mais"

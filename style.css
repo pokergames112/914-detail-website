@@ -50,7 +50,7 @@ body {
     border: none;
 }
 .btn-primario:hover {
-    background-color: #ba06ec; /* Um roxo um pouco mais escuro */
+    background-color: #a305d1; /* Roxo um pouco mais escuro */
 }
 
 /* Botão secundário (Nossos Serviços) */
@@ -108,6 +108,7 @@ body {
     align-items: center;
     text-align: center;
     padding-top: 80px; /* Compensa o cabeçalho fixo */
+    min-height: 600px; /* Garante uma altura mínima no desktop */
 }
 
 .hero-content {
@@ -446,7 +447,7 @@ body {
 }
 
 #scrollToTopBtn:hover {
-    background-color: #ba06ec; /* Roxo um pouco mais escuro */
+    background-color: #a305d1; /* Roxo um pouco mais escuro */
 }
 
 /* --- ESTILO DO BOTÃO LEIA MAIS --- */
@@ -586,8 +587,16 @@ body {
     .container {
         padding: 0 15px; /* Reduz o padding lateral para maximizar o espaço */
     }
+    
+    .title-section {
+        font-size: 3rem; /* Título de seção menor */
+    }
 
     /* --- CABEÇALHO / NAVBAR --- */
+    .header {
+        padding: 10px 0; /* Padding menor no header */
+    }
+
     .navbar {
         /* Mantenha o flex e use space-between para separar o logo da navegação */
         flex-direction: row; /* Volta a ser em linha */
@@ -598,7 +607,7 @@ body {
     }
 
     .logo-img {
-        height: 50px; /* Ajuste para mobile */
+        height: 45px; /* Ajuste para mobile */
     }
     
     /* Centraliza a navegação e ajusta o espaçamento dos botões */
@@ -623,8 +632,9 @@ body {
     .hero-section {
         /* Ajuste este padding para compensar a nova altura do header.
            Como o header está mais compacto (cerca de 80px), este valor deve ser suficiente. */
-        padding-top: 100px; 
-        height: 80vh; 
+        padding-top: 90px; 
+        height: 70vh; /* Altura um pouco menor para mostrar o próximo conteúdo */
+        min-height: 500px; /* Garante que a seção não fique muito pequena */
     }
 
     .hero-content h1 {
@@ -634,6 +644,7 @@ body {
     .hero-content p {
         font-size: 1rem; /* Parágrafo menor e mais fácil de ler */
         padding: 0 10px;
+        margin-bottom: 20px;
     }
 
     .hero-content .btn-primario {
@@ -641,80 +652,65 @@ body {
         padding: 12px 30px;
     }
 
-    .servicos-grid {
-        /* 1 coluna por linha (Mobile) */
-        grid-template-columns: 1fr; 
-        gap: 60px; 
+    /* --- SERVIÇOS / PACOTES --- */
+    .servicos-section, .pacotes-section {
+        padding: 60px 0; /* Reduz o padding vertical */
     }
     
-    .poligono-container {
-        /* Ajusta o tamanho do polígono para telas menores */
-        height: 200px;
-        max-width: 80%;
+    .servico-card {
+        padding: 12px;
+    }
+    
+    .servico-card h3 {
+        font-size: 1.5rem; /* Título do card menor */
+    }
+    
+    .preco-card {
+        font-size: 1.3rem;
+    }
+    
+    /* --- AVALIAÇÕES --- */
+    .nota-maxima-destaque {
+        padding: 20px;
+        margin: 30px auto;
     }
 
-    .pacote-header h3 {
-        font-size: 1.5rem;
+    .nota-maxima-destaque p {
+        font-size: 1rem;
     }
     
-    .pacote-conteudo {
-        flex-direction: column; /* Empilha o bloco de imagens e a lista */
-        padding: 15px;
+    /* Otimização dos prints de avaliação */
+    .mySwiperReviews {
+        padding-bottom: 30px; 
+    }
+    
+    .review-print {
+        max-width: 100%; /* Garante que a imagem ocupe o máximo de espaço do slide */
     }
 
-    .pacote-poligonos {
-        width: 100%; /* Ocupa a largura total */
-        margin-bottom: 20px;
-        justify-content: center;
-        gap: 20px;
+    /* --- CTA FINAL --- */
+    .cta-final-section {
+        padding: 60px 0;
     }
     
-    .poligono-metade {
-        width: 45%; /* Os dois polígonos ficam lado a lado, mas menores */
-        height: 150px;
-    }
-    
-    .pacote-lista {
-        width: 100%;
-        text-align: center;
-    }
-    
-    .pacote-lista li {
-        font-size: 0.95rem;
-    }
-
-    .reviews-iframe-container {
-        max-width: 100%;
-        margin: 30px 0; /* Remove a margem lateral */
-    }
-
     .cta-final-section h2 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     
-    .footer-grid {
-        grid-template-columns: 1fr; /* Empilha tudo em uma coluna */
-        text-align: center;
+    .cta-final-section p {
+        font-size: 1rem;
+        margin-bottom: 20px;
     }
 
-    .footer-item {
-        margin-bottom: 30px;
+    /* --- RODAPÉ --- */
+    .footer-section {
+        padding-top: 40px;
     }
     
-    .footer-logo, .footer-item {
-        /* Centraliza o conteúdo no mobile */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .social-link {
-        justify-content: center;
-    }
-
     .footer-top-row {
         flex-direction: column; 
         gap: 40px;
+        padding-bottom: 30px;
     }
     
     .footer-item {
@@ -726,8 +722,13 @@ body {
     /* Garante que os links de contato continuem centralizados */
     .social-link {
         justify-content: center;
+        margin: 5px 0; /* Ajusta a margem para empilhar se necessário */
     }
-
+    
+    .footer-copyright {
+        padding: 15px 0;
+    }
+    
     #scrollToTopBtn {
         width: 40px;
         height: 40px;
@@ -756,4 +757,65 @@ body {
         transform: translateY(-50%);
     }
     
+}
+
+/* NOVO: Ajustes para telas muito pequenas (ex: 320px - 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px; /* Padding mínimo */
+    }
+    
+    /* --- CABEÇALHO / NAVBAR --- */
+    nav {
+        gap: 3px; /* Espaço mínimo entre os botões */
+    }
+    
+    .btn {
+        padding: 7px 8px; /* Botões ainda menores */
+        font-size: 0.75rem; 
+    }
+    
+    .logo-img {
+        height: 40px;
+    }
+    
+    /* --- SEÇÃO HERO --- */
+    .hero-section {
+        padding-top: 80px; 
+        height: auto; 
+        min-height: 450px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem; /* Título principal bem menor */
+    }
+
+    .hero-content p {
+        font-size: 0.9rem; 
+    }
+    
+    .hero-content .btn-primario {
+        font-size: 0.9rem;
+        padding: 10px 25px;
+    }
+    
+    .title-section {
+        font-size: 2.5rem;
+    }
+
+    /* Otimização da nota máxima no mobile estreito */
+    .nota-maxima-destaque {
+        margin: 20px 0; 
+        padding: 15px;
+    }
+
+    /* Certifica-se de que o mySwiperReviews tem apenas 1 slide visível no mobile estreito (já configurado no JS) */
+    
+    .modal-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .modal-content p {
+        font-size: 0.95rem;
+    }
 }
