@@ -149,7 +149,7 @@ body {
 
 /* Estilo do Cartão de Serviço */
 .servico-card {
-    background-color: #1a1a1a; /* Fundo do card */
+    background-color: #1a1a1a;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -157,13 +157,13 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    height: auto !important; /* Swiper exige !important para funcionar com auto */
+    height: auto !important;
 }
 
 .servico-img {
     width: 100%;
-    height: 150px; /* Altura fixa para uniformidade */
-    object-fit: cover; /* Garante que a imagem cubra o espaço */
+    height: 150px;
+    object-fit: cover;
     border-radius: 5px;
     margin-bottom: 15px;
 }
@@ -178,15 +178,35 @@ body {
 .servico-card p {
     font-size: 0.9rem;
     color: #ccc;
-    flex-grow: 1; /* Faz o parágrafo ocupar o espaço para alinhar botões */
+    flex-grow: 1;
     margin-bottom: 15px;
-    min-height: 40px; /* Garante que cards com textos curtos não fiquem desalinhados */
+}
+
+.btn-leia-mais {
+    display: block;
+    padding: 8px 15px;
+    background-color: var(--roxo-principal); 
+    color: var(--branco-texto);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    align-self: stretch;
+}
+
+.btn-leia-mais:hover {
+    background-color: #7a00cc;
 }
 
 .preco-card {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--branco-texto);
+    display: block;
     margin-bottom: 15px;
 }
 
@@ -210,17 +230,15 @@ body {
 .pacotes-section {
     padding: 80px 0;
     text-align: center;
-    /* Usa a mesma cor de fundo da página */
 }
 
 /* Estilo para a lista de itens inclusos */
 .pacote-lista {
-    list-style: none; /* Remove os marcadores de lista padrão */
+    list-style: none;
     padding: 0;
     margin: 10px 0 20px 0;
     text-align: left;
     width: 100%;
-    /* Max-width para centralizar a lista dentro do card */
     max-width: 200px; 
     margin: 10px auto 20px auto;
 }
@@ -443,6 +461,7 @@ body {
     font-size: 0.85rem;
     border-radius: 4px;
     transition: all 0.3s;
+    margin-top: 5px; /* Espaço entre o parágrafo e o botão */
     margin-bottom: 10px; /* Espaço entre "Leia Mais" e "Preço/Agendar" */
     cursor: pointer;
 }
