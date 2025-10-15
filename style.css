@@ -721,8 +721,11 @@ body {
 
     /* Garante que os links de contato continuem centralizados */
     .social-link {
+        display: flex;
+        flex-direction: row;
         justify-content: center;
-        margin: 5px 0; /* Ajusta a margem para empilhar se necessário */
+        margin: 8px 0; /* Ajusta a margem para empilhar se necessário */
+
     }
     
     .footer-copyright {
