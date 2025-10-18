@@ -735,8 +735,8 @@ body {
     #scrollToTopBtn {
         width: 40px;
         height: 40px;
-        bottom: 15px;
-        right: 15px;
+        bottom: 50px;
+        right: 50px;
         font-size: 20px;
         line-height: 40px;
     }
