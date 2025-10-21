@@ -9,10 +9,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const scrollThreshold = 300; 
     let lastScrollY = 0; // Inicializado corretamente
 
-    // --- NOVO: Constantes para o Dropdown Mobile (Blog) ---
+    // --- Constantes para o Dropdown Mobile (Blog) ---
     const dropdownMobile = document.querySelector('.dropdown-mobile');
     const dropdownBtn = document.querySelector('.dropdown-mobile .dropdown-btn');
     const dropdownSubLinks = document.querySelectorAll('.dropdown-content-mobile a');
+    
+    // --- NOVO: Constantes para o Dropdown Desktop (Blog) ---
+    const dropdownDesktop = document.querySelector('.dropdown-desktop');
+    const dropdownBtnDesktop = document.querySelector('.dropdown-desktop .dropdown-btn-desktop');
     // --- FIM NOVO ---
 
 
@@ -33,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Se o menu estiver fechando, garante que o header não esteja escondido 
             if (!shouldOpen) {
                  header.classList.remove('hide');
-                 // NOVO: Fecha o dropdown do blog se o menu principal fechar
+                 // Fecha o dropdown do blog se o menu principal fechar
                  if (dropdownMobile) {
                     dropdownMobile.classList.remove('active');
                  }
@@ -83,7 +87,26 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-    // --- FIM NOVO: Lógica do DROPDOWN MOBILE ---
+    // --- FIM Lógica do DROPDOWN MOBILE ---
+
+
+    // --- 2.1. Lógica do DROPDOWN DESKTOP (Blog 914) ---
+    if (dropdownBtnDesktop) {
+        dropdownBtnDesktop.addEventListener('click', (event) => {
+            // Previne que o evento chegue ao document e feche imediatamente
+            event.stopPropagation();
+            // Alterna a classe 'active' no elemento pai para abrir/fechar o submenu
+            dropdownDesktop.classList.toggle('active');
+        });
+
+        // Fechar o dropdown ao clicar fora dele
+        document.addEventListener('click', (event) => {
+            if (dropdownDesktop && !dropdownDesktop.contains(event.target)) {
+                dropdownDesktop.classList.remove('active');
+            }
+        });
+    }
+    // --- FIM NOVO: Lógica do DROPDOWN DESKTOP ---
 
 
     // --- 3. Lógica do Header Inteligente (Smart Header) ---
