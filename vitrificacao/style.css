@@ -316,6 +316,11 @@ h2 {
     text-align: center;
 }
 
+/* NOVO: Remove a borda inferior do link 'Vitrificação' para não conflitar com a borda do dropdown */
+.menu-mobile a[href="#o-que-e"] {
+    border-bottom: none;
+}
+
 .menu-mobile a:last-child {
     border-bottom: none;
     margin-top: 20px;
@@ -423,6 +428,72 @@ h2 {
     pointer-events: all;
 }
 
+/* ---------------------------------------------------- */
+/* --- NOVO: ESTILOS PARA DROPDOWN MOBILE (BLOG 914) --- */
+/* ---------------------------------------------------- */
+
+.dropdown-mobile {
+    width: 100%; 
+    text-align: center; 
+    /* Borda para separar do item anterior e do botão de WhatsApp */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-btn {
+    background: none;
+    border: none;
+    color: var(--cor-texto-principal);
+    font-size: 1.1rem;
+    padding: 15px 0;
+    width: 100%; 
+    cursor: pointer;
+    font-family: var(--montserrat);
+    font-weight: 400;
+    text-transform: none;
+    /* Transição para a seta */
+    transition: color 0.3s ease; 
+}
+
+/* Estilo para a seta */
+.dropdown-btn .fa-chevron-down {
+    margin-left: 10px;
+    font-size: 0.8rem;
+    transition: transform 0.3s;
+}
+
+/* Rotação da seta quando o dropdown está ativo */
+.dropdown-mobile.active .dropdown-btn .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+/* Conteúdo escondido do dropdown */
+.dropdown-content-mobile {
+    display: none; 
+    padding: 10px 0; 
+    background-color: rgba(255, 255, 255, 0.05); /* Fundo sutil para os sub-links */
+}
+
+/* Exibe quando a classe 'active' está no .dropdown-mobile */
+.dropdown-mobile.active .dropdown-content-mobile {
+    display: flex; 
+    flex-direction: column; 
+}
+
+/* Links dentro do dropdown */
+.dropdown-content-mobile a {
+    /* Remove a borda inferior que o menu principal aplica a todos os <a> */
+    border-bottom: none; 
+    padding: 10px 0; 
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* Estilo para separar o botão principal do WhatsApp do menu/dropdown */
+.menu-mobile a.btn-primario {
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); 
+    padding-top: 20px;
+}
 
 /* ---------------------------------------------------- */
 /* --- 10. MEDIA QUERIES (DESKTOP) --- */
@@ -560,11 +631,11 @@ h2 {
 
 
     /* Reduz o tamanho da fonte dos títulos para caber melhor */
-    .title-section {
-        font-size: 2.5rem;
+    h2 {
+        font-size: 1.3rem;
     }
     .title-section-sub {
-        font-size: 1.8rem;
+        font-size: 1.3rem;
     }
 
     /* Reduz o tamanho dos botões fixos */

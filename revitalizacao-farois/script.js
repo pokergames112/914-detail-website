@@ -9,6 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const scrollThreshold = 300; 
     let lastScrollY = 0; // Inicializado corretamente
 
+    // --- NOVO: Constantes para o Dropdown Mobile (Blog) ---
+    const dropdownMobile = document.querySelector('.dropdown-mobile');
+    const dropdownBtn = document.querySelector('.dropdown-mobile .dropdown-btn');
+    const dropdownSubLinks = document.querySelectorAll('.dropdown-content-mobile a');
+    // --- FIM NOVO ---
+
+
     // --- 0. Funções Utilitárias ---
 
     // Função para gerenciar o estado do menu mobile
@@ -23,9 +30,13 @@ document.addEventListener('DOMContentLoaded', function() {
             // Bloqueia/restaura a rolagem do body
             document.body.style.overflow = shouldOpen ? 'hidden' : 'auto';
             
-            // Se o menu estiver fechando, garante que o header não esteja escondido (caso o usuário tenha parado de rolar)
+            // Se o menu estiver fechando, garante que o header não esteja escondido 
             if (!shouldOpen) {
                  header.classList.remove('hide');
+                 // NOVO: Fecha o dropdown do blog se o menu principal fechar
+                 if (dropdownMobile) {
+                    dropdownMobile.classList.remove('active');
+                 }
             }
         }
     }
@@ -53,8 +64,29 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+    
+    // --- 2. Lógica do DROPDOWN MOBILE (Blog 914) ---
 
-    // --- 2. Lógica do Header Inteligente (Smart Header) ---
+    if (dropdownBtn) {
+        dropdownBtn.addEventListener('click', () => {
+            // Alterna a classe 'active' no elemento pai para abrir/fechar o submenu
+            dropdownMobile.classList.toggle('active'); 
+        });
+    }
+
+    if (dropdownSubLinks) {
+        // Garante que o menu principal feche ao clicar em um SUB-LINK do dropdown
+        dropdownSubLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Fecha o menu hamburger completo
+                toggleMobileMenu(false); 
+            });
+        });
+    }
+    // --- FIM NOVO: Lógica do DROPDOWN MOBILE ---
+
+
+    // --- 3. Lógica do Header Inteligente (Smart Header) ---
     
     window.addEventListener('scroll', () => {
         // Ignora a lógica se o menu mobile estiver aberto
@@ -78,18 +110,16 @@ document.addEventListener('DOMContentLoaded', function() {
         lastScrollY = currentScrollY;
     });
 
-    // --- 3. Lógica dos Links de Rolagem Suave (Links Internos) ---
+    // --- 4. Lógica dos Links de Rolagem Suave (Links Internos) ---
     
     // Função unificada para rolagem suave (pode ser chamada de dentro do menu mobile também)
     function smoothScroll(targetId) {
         const targetElement = document.getElementById(targetId);
 
         if (targetElement) {
-            // Usa scrollIntoView com comportamento suave. 
-            // O CSS pode ser ajustado para usar 'scroll-padding-top' no HTML/Body para compensar o header fixo.
-            // Para maior compatibilidade (Chrome/Safari), ainda usamos o scrollTo:
+            // Ajuste para altura do header + margem
             window.scrollTo({
-                top: targetElement.offsetTop - (header ? header.offsetHeight : 0) - 20, // Ajuste para altura do header + margem
+                top: targetElement.offsetTop - (header ? header.offsetHeight : 0) - 20, 
                 behavior: 'smooth'
             });
         }
@@ -106,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
-    // --- 4. Lógica dos Botões Fixos (Scroll to Top / Voltar) ---
+    // --- 5. Lógica dos Botões Fixos (Scroll to Top / Voltar) ---
     
     function toggleVisibility() {
         const isVisible = window.scrollY > scrollThreshold;
@@ -133,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Chama a função uma vez no carregamento para checar a posição inicial
     toggleVisibility();
 
-    // --- 5. Atualização do Ano no Footer (Boas Práticas) ---
+    // --- 6. Atualização do Ano no Footer (Boas Práticas) ---
     const currentYearSpan = document.getElementById('current-year');
     if (currentYearSpan) {
         currentYearSpan.textContent = new Date().getFullYear();
