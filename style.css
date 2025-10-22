@@ -1055,3 +1055,20 @@ nav {
         font-size: 0.95rem;
     }
 }
+
+/* SEO + UX: breadcrumb e responsividade */
+.breadcrumb-nav {
+  font-size: 0.9rem;
+  color: #ccc;
+  text-align: left;
+  margin: 90px 20px 0;
+}
+
+.breadcrumb-nav a {
+  color: var(--roxo-principal);
+  text-decoration: none;
+}
+
+.breadcrumb-nav a:hover {
+  text-decoration: underline;
+}
