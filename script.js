@@ -265,6 +265,27 @@ document.addEventListener('DOMContentLoaded', () => {
             closeModal();
         }
     });
+    
+    // ***************************************************************
+    // --- NOVO: RASTREAMENTO DE CONVERSÃO (GOOGLE ADS E META PIXEL) ---
+    // ***************************************************************
+    
+    // Esta lógica dispara o evento de conversão quando o link do WhatsApp na modal é clicado.
+    if (modalWhatsappLink) {
+        modalWhatsappLink.addEventListener('click', () => {
+            
+            // 1. EVENTO DO GOOGLE ADS (Substitua SEU_CODIGO_DE_CONVERSAO pelo seu código real)
+            // AW-17614495292 é o ID da Tag Global que está no seu index.html
+            // Você precisa adicionar o código de evento ÚNICO da sua conversão aqui.
+            gtag('event', 'conversion', {'send_to': 'AW-17614495292/SEU_CODIGO_DE_CONVERSAO'});
+            
+            // 2. EVENTO DO META PIXEL (Facebook/Instagram)
+            // O ID 4108327999420027 é o ID do seu Pixel que deve estar no index.html.
+            fbq('track', 'Lead'); // 'Lead' é o evento mais comum para este tipo de contato/agendamento.
+            
+            // O navegador seguirá o 'href' do link (para o WhatsApp) normalmente após a execução deste código.
+        });
+    }
 
     // --- Lazy Loading manual fallback para navegadores antigos ---
 document.addEventListener("DOMContentLoaded", function() {
