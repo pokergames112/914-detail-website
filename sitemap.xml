@@ -1,7 +1,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://www.914detail.com/</loc>
-        <lastmod>2025-10-21</lastmod>
+        <lastmod>2025-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
@@ -38,6 +38,6 @@
     <url>
         <loc>https://www.914detail.com/pacotes-premium/index.html</loc>
         <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.8</priority>
     </url>
 </urlset>
