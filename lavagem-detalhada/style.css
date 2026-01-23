@@ -198,132 +198,75 @@ h2 {
 .comparison-table th, .comparison-table td {
     padding: 12px 15px;
     text-align: left;
-    background-color: #0d0d0d; /* Fundo escuro para células */
+    background-color: #0d0d0d;
     border: 1px solid rgba(255, 255, 255, 0.1);
     color: var(--cor-texto-principal);
 }
+
 .comparison-table th {
     background-color: #585858;
     color: var(--cor-texto-principal);
-    font-family: var(--montserrat); /* ALTERADO: Sai Bebas Neue (All Caps) */
-    text-transform: none; /* REMOVIDO: Era uppercase */
-    font-weight: 700; /* NOVO: Adiciona negrito para destaque */
+    font-family: var(--montserrat);
+    font-weight: 700;
     font-size: 1.1rem;
 }
 
-#beneficios {
-    /* O valor de 60px é um bom ponto de partida para separar visualmente */
-    margin-top: 60px; 
-    margin-bottom: 40px; /* Mantendo o espaçamento inferior que você já tinha */
+/* --- NOVO: ESTILOS PARA OS NÍVEIS DE LAVAGEM (SECTION DIFERENCIAL) --- */
+#diferencial h3 {
+    font-size: 1.2rem;
+    color: var(--roxo-principal);
+    margin-bottom: 10px;
+    text-align: left; /* Alinha o título do card à esquerda */
 }
 
-/* Adicione esta regra no seu style.css */
-#beneficios h2 {
-    margin-top: 40px; /* Adiciona espaçamento acima do título */
-    margin-bottom: 20px; /* Adiciona espaçamento abaixo do título, se necessário */
-    text-align: center; /* Mantém a centralização que você solicitou antes */
+#diferencial h4 {
+    font-size: 1rem;
+    color: #fff;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-align: left;
+    border-left: 3px solid var(--roxo-principal);
+    padding-left: 10px;
 }
 
-#beneficios ul {
-    /* Centraliza o bloco da lista (UL) no container */
-    list-style-position: inside; /* Opcional: Traz os bullets para dentro do UL */
-    text-align: left; /* Garante que os LIs fiquem alinhados à esquerda dentro do UL */
-    display: inline-block; /* Faz com que o UL se comporte como um bloco com largura ajustada ao conteúdo */
-}
-
-/* Adicione esta regra ao seu style.css */
-#cta-agendamento {
-    text-align: center; /* Centraliza o botão e o parágrafo */
-    padding: 20px 0; /* Recria o padding inline que existia */
-}
-
-#cta-agendamento p {
-    /* Garante que o texto do parágrafo, mesmo com o margin-top inline, seja centralizado */
-    text-align: center;
-    /* Opcional, mas útil: Reseta possíveis margens laterais que poderiam empurrá-lo */
-    margin-left: auto; 
-    margin-right: auto;
-}
-
-/* --- ESTILOS PADRÃO MOBILE/BASE (ELEMENTOS ESCONDIDOS) --- */
-
-/* Esconde o menu desktop por padrão (Mobile First) */
-.menu-desktop {
-    display: none; 
-}
-
-/* Estilo do botão hambúrguer (Visível por padrão no Mobile First) */
-.hamburger-btn {
-    display: block; 
-    background: none;
-    border: none;
-    cursor: pointer;
+#diferencial ul {
+    list-style: none;
     padding: 0;
-    z-index: 20; 
+    margin: 0;
+    display: block; /* Garante que não herde o inline-block de outras seções */
+    text-align: left;
 }
 
-.hamburger-btn .bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    background-color: var(--roxo-principal);
-    transition: all 0.3s ease-in-out;
+#diferencial li {
+    font-size: 0.9rem;
+    color: var(--cor-texto-claro);
+    margin-bottom: 5px;
+    padding-left: 15px;
+    position: relative;
 }
 
-/* Animação do X (Estado ativo/aberto) */
-.hamburger-btn.is-open .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.hamburger-btn.is-open .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger-btn.is-open .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-/* Estilo do Menu Mobile (Escondido por padrão no Mobile First) */
-.menu-mobile {
-    position: fixed;
-    top: 70px; 
+#diferencial li::before {
+    content: "•";
+    color: var(--roxo-principal);
+    position: absolute;
     left: 0;
-    width: 100%;
-    height: calc(100% - 70px);
-    background-color: var(--cor-fundo-secundario);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    padding: 20px 40px;
-    transition: transform 0.3s ease-in-out;
-    transform: translateX(100%); /* Esconde fora da tela por padrão */
-    z-index: 15;
-    overflow-y: auto; 
+    font-weight: bold;
 }
 
-.menu-mobile.active {
-    transform: translateX(0); /* Move para a tela quando ativo */
+/* Efeito de destaque ao passar o mouse nos cards */
+#diferencial div[style*="border"] {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.menu-mobile a {
-    color: var(--cor-texto-principal);
-    text-decoration: none;
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 1.1rem;
-    text-transform: none; 
-    text-align: center;
+#diferencial div[style*="border"]:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(163, 5, 209, 0.2);
 }
 
-/* NOVO: Remove a borda inferior do link 'Vitrificação' para não conflitar com a borda do dropdown */
-.menu-mobile a[href="#o-que-e"] {
-    border-bottom: none;
-}
-
-.menu-mobile a:last-child {
-    border-bottom: none;
-    margin-top: 20px;
+/* --- 8. BENEFICIOS --- */
+#beneficios {
+    margin-top: 60px; 
+    margin-bottom: 40px;
 }
 
 /* --- 8. FOOTER (Estilos Base/Desktop) --- */
